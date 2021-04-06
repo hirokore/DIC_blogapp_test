@@ -1,0 +1,22 @@
+<%= form_with(model: @blog ,local: true ,url: choose_new_or_edit ) do |form| %>
+    <% if @blog.errors.any? %>
+        <div class="error_explation">
+            <h2><%= @blog.errors.count %>件のエラーがあります。</h2>
+            <ul>
+                <% @blog.errors.full_messages.each do |msg|%>
+                <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+    <h2>ブログ投稿画面<span style="color:red">new</span></h2>
+    <div class="blog_title">
+        <%= form.label :title %>
+        <%= form.text_field :title %><br>
+        <%= form.label :content %>
+        <%= form.text_field :content %><br><br>
+        <%= form.submit value="送信" %>
+    </div>
+<% end %>
+<br>
+<%= link_to "投稿一覧へ", blogs_path %>

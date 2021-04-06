@@ -1,0 +1,9 @@
+<h3>確認画面</h3>
+<%= form_with(model: @blog ,local: true ) do |form| %>
+    <%= form.hidden_field :title %>
+    <%= form.hidden_field :content %>
+    <p>タイトル：<%= @blog.title %></p>
+    <p>本文：<%= @blog.content %></p>
+    <%= form.submit "登録"%><br><br>
+    <%= form.submit "戻る", name: 'back' %>
+<% end %>
