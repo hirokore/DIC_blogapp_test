@@ -25,6 +25,7 @@ class BlogsController < ApplicationController
   def create
     @blog = Blog.create(blog_params)
     if params[:back]
+      @blog = Blog.new(blog_params)
       render :new
     else
       if @blog.save
